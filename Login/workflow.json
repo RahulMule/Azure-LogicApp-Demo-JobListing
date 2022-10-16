@@ -6,7 +6,7 @@
         "inputs": {
           "body": {
             "accessToken": "adsadasdas",
-            "roles": "Admin"
+            "roles": "Admins"
           },
           "statusCode": 200
         },
