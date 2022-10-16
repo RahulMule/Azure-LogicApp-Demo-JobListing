@@ -1,0 +1,46 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "HTTP": {
+        "inputs": {
+          "authentication": {
+            "password": " ",
+            "type": "Basic",
+            "username": "f3640f5f-3cc9-4daf-aa3d-5e0c28235262"
+          },
+          "method": "GET",
+          "queries": {
+            "keywords": "@{triggerBody()['keywords']}"
+          },
+          "uri": "https://www.reed.co.uk/api/1.0/search?"
+        },
+        "runAfter": {},
+        "type": "Http"
+      },
+      "Response": {
+        "inputs": {
+          "body": "@body('HTTP')",
+          "statusCode": 200
+        },
+        "kind": "http",
+        "runAfter": {
+          "HTTP": [
+            "Succeeded"
+          ]
+        },
+        "type": "Response"
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "manual": {
+        "inputs": {},
+        "kind": "Http",
+        "type": "Request"
+      }
+    }
+  },
+  "kind": "Stateful"
+}
